@@ -372,8 +372,8 @@ class AsyncLLMEngine:
             from vllm.executor.cpu_executor import CPUExecutorAsync
             executor_class = CPUExecutorAsync
         elif engine_config.device_config.device_type == "openvino":
-            assert not engine_config.parallel_config.worker_use_ray, (
-                "Ray is not supported with the OpenVINO backend.")
+            # assert not engine_config.parallel_config.worker_use_ray, (
+            #     "Ray is not supported with the OpenVINO backend.")
             from vllm.executor.openvino_executor import OpenVINOExecutorAsync
             executor_class = OpenVINOExecutorAsync
         elif distributed_executor_backend == "ray":
